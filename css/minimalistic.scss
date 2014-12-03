@@ -1,0 +1,228 @@
+/*
+  Copyright 2014 Jorge Rodriguez(jycr753)
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+*/
+
+$default_color : #FFFFFF;
+$font_color :#000000;
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+@mixin border-radius ($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius:    $radius;
+  border-radius:         $radius;
+}
+@mixin opacity ($opacity: 0.5) {
+  -webkit-opacity:  $opacity;
+  -moz-opacity:     $opacity;
+  opacity:    $opacity;
+}
+
+@mixin get_animation($speed : .3s, $animation: all, $ease: ease){
+  -webkit-transition: $animation $speed $ease;
+  -moz-transition: $animation $speed $ease;
+  -ms-transition: $animation $speed $ease;
+  -o-transition: $animation $speed $ease;
+  transition: $animation $speed $ease;
+}
+
+@mixin rotate_object($degrees : 45deg){
+  -webkit-transform: rotate($degrees);
+  -moz-transform: rotate($degrees);
+  -ms-transform: rotate($degrees);
+  -o-transform: rotate($degrees);
+  transform: rotate($degrees);
+}
+
+@mixin image_scale($value: 1.1){
+  -webkit-transform: scale($value);
+     -moz-transform: scale($value);
+      -ms-transform: scale($value);
+       -o-transform: scale($value);
+          transform: scale($value);
+}
+
+@mixin get_gradiant($from_color: $default_color, $to_color:$default_color, $alpha:1){
+  $from_red: red($from_color);
+  $from_green: green($from_color);
+  $from_blue: blue($from_color);
+  $to_red: red($to_color);
+  $to_green: green($to_color);
+  $to_blue: blue($to_color);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba($from_red, $from_green, $from_blue, $alpha)), to(rgba($to_red, $to_green, $to_blue,$alpha)));
+  background-image: -webkit-linear-gradient(top, rgba($from_red, $from_green, $from_blue, $alpha), rgba($to_red, $to_green, $to_blue,$alpha));
+  background-image: -moz-linear-gradient(top, rgba($from_red, $from_green, $from_blue, $alpha), rgba($to_red, $to_green, $to_blue,$alpha));
+  background-image: -o-linear-gradient(top, rgba($from_red, $from_green, $from_blue, $alpha), rgba($to_red, $to_green, $to_blue,$alpha));
+  background-image: -ms-linear-gradient(top, rgba($from_red, $from_green, $from_blue, $alpha), rgba($to_red, $to_green, $to_blue,$alpha));
+  background-image: linear-gradient(top, rgba($from_red, $from_green, $from_blue, $alpha), rgba($to_red, $to_green, $to_blue,$alpha));
+}
+
+@mixin icon($width: 30px, $height: 5px, $gutter: 3px, $color: #000, $border-radius: 0, $transition-duration: .3s) {
+    $icon-height: $height !global;
+    $icon-gutter: $gutter !global;
+
+    position: relative;
+    margin-top: $height + $gutter;
+    margin-bottom: $height + $gutter;
+
+    &, &:before, &:after {
+        display: block;
+        width: $width;
+        height: $height;
+        background-color: $color;
+        @if $border-radius != 0 {
+            border-radius: $border-radius;
+        }
+
+        -webkit-transition-property: background-color, -webkit-transform;
+        -moz-transition-property: background-color, -moz-transform;
+        -o-transition-property: background-color, -o-transform;
+        transition-property: background-color, transform;
+
+        -webkit-transition-duration: $transition-duration;
+        -moz-transition-duration: $transition-duration;
+        -o-transition-duration: $transition-duration;
+        transition-duration: $transition-duration;
+    }
+
+    &:before, &:after {
+        position: absolute;
+        content: "";
+    }
+
+    &:before {
+        top: -($height + $gutter);
+    }
+
+    &:after {
+        top: $height + $gutter;
+    }
+}
+
+@mixin icon-parts {
+    &, &:before, &:after {
+        @content;
+    }
+}
+
+@mixin icon-top {
+    &:before {
+        @content;
+    }
+}
+
+@mixin icon-middle {
+    & {
+        @content;
+    }
+}
+
+@mixin icon-bottom {
+    &:after {
+        @content;
+    }
+}
+
+@mixin icon-to-cross {
+    & {
+        background-color: transparent;
+    }
+    &:before {
+        -webkit-transform: translateY($icon-gutter + $icon-height) rotate(45deg);
+        -moz-transform: translateY($icon-gutter + $icon-height) rotate(45deg);
+        -ms-transform: translateY($icon-gutter + $icon-height) rotate(45deg);
+        -o-transform: translateY($icon-gutter + $icon-height) rotate(45deg);
+        transform: translateY($icon-gutter + $icon-height) rotate(45deg);
+    }
+    &:after {
+        -webkit-transform: translateY(-($icon-gutter + $icon-height)) rotate(-45deg);
+        -moz-transform: translateY(-($icon-gutter + $icon-height)) rotate(-45deg);
+        -ms-transform: translateY(-($icon-gutter + $icon-height)) rotate(-45deg);
+        -o-transform: translateY(-($icon-gutter + $icon-height)) rotate(-45deg);
+        transform: translateY(-($icon-gutter + $icon-height)) rotate(-45deg);
+    }
+}
+
+.modal-drop.in{
+  @include get_animation(0.9s, opacity, ease-in);
+}
+
+
+.ekko-lightbox {
+  overflow: auto;
+  @include get_gradiant(#D9D9D9, #D9D9D9, 0.4);
+  .modal-content{
+    @include border-radius(0);
+  }
+  .modal-header {
+    border:none;
+    padding:inherit 0;
+
+    .close {
+      @include icon(25px, 3px, 1px, #000000);
+      @include icon-to-cross();
+      margin-top: 0px;
+    }
+    .close:hover {
+      color:rgba(0,0,0,1);
+      @include image_scale();
+      @include rotate_object();
+      @include get_animation();
+    }
+    .modal-title {
+      line-height: 0.128571429;
+    }
+
+    h4.modal-title {
+      font-weight: 200;
+      color:$font_color;
+      padding:0;
+    }
+    h4.modal-title::first-letter{
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+
+  }
+
+  .modal-body{
+    padding:0;
+  }
+
+  .modal-footer{
+    @include opacity(0.5);
+    font-weight: 200;
+    color:$font_color;
+    padding:0;
+
+  }
+
+  &-nav-overlay{
+    a{
+      @include opacity(0.5);
+      text-shadow: none;
+    }
+  }
+}

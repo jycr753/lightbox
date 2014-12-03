@@ -1,0 +1,116 @@
+/*
+  Copyright 2014 Jorge Rodriguez(jycr753)
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+*/
+.modal-drop.in {
+  -webkit-transition: opacity 0.9s ease-in;
+  -moz-transition: opacity 0.9s ease-in;
+  -ms-transition: opacity 0.9s ease-in;
+  -o-transition: opacity 0.9s ease-in;
+  transition: opacity 0.9s ease-in; }
+
+.ekko-lightbox {
+  overflow: auto;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(217, 217, 217, 0.4)), to(rgba(217, 217, 217, 0.4)));
+  background-image: -webkit-linear-gradient(top, rgba(217, 217, 217, 0.4), rgba(217, 217, 217, 0.4));
+  background-image: -moz-linear-gradient(top, rgba(217, 217, 217, 0.4), rgba(217, 217, 217, 0.4));
+  background-image: -o-linear-gradient(top, rgba(217, 217, 217, 0.4), rgba(217, 217, 217, 0.4));
+  background-image: -ms-linear-gradient(top, rgba(217, 217, 217, 0.4), rgba(217, 217, 217, 0.4));
+  background-image: linear-gradient(top, rgba(217, 217, 217, 0.4), rgba(217, 217, 217, 0.4)); }
+  .ekko-lightbox .modal-content {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0; }
+  .ekko-lightbox .modal-header {
+    border: none;
+    padding: inherit 0; }
+    .ekko-lightbox .modal-header .close {
+      position: relative;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      margin-top: 0px; }
+      .ekko-lightbox .modal-header .close, .ekko-lightbox .modal-header .close:before, .ekko-lightbox .modal-header .close:after {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #000000;
+        -webkit-transition-property: background-color, -webkit-transform;
+        -moz-transition-property: background-color, -moz-transform;
+        -o-transition-property: background-color, -o-transform;
+        transition-property: background-color, transform;
+        -webkit-transition-duration: 0.3s;
+        -moz-transition-duration: 0.3s;
+        -o-transition-duration: 0.3s;
+        transition-duration: 0.3s; }
+      .ekko-lightbox .modal-header .close:before, .ekko-lightbox .modal-header .close:after {
+        position: absolute;
+        content: ""; }
+      .ekko-lightbox .modal-header .close:before {
+        top: -4px; }
+      .ekko-lightbox .modal-header .close:after {
+        top: 4px; }
+      .ekko-lightbox .modal-header .close {
+        background-color: transparent; }
+      .ekko-lightbox .modal-header .close:before {
+        -webkit-transform: translateY(4px) rotate(45deg);
+        -moz-transform: translateY(4px) rotate(45deg);
+        -ms-transform: translateY(4px) rotate(45deg);
+        -o-transform: translateY(4px) rotate(45deg);
+        transform: translateY(4px) rotate(45deg); }
+      .ekko-lightbox .modal-header .close:after {
+        -webkit-transform: translateY(-4px) rotate(-45deg);
+        -moz-transform: translateY(-4px) rotate(-45deg);
+        -ms-transform: translateY(-4px) rotate(-45deg);
+        -o-transform: translateY(-4px) rotate(-45deg);
+        transform: translateY(-4px) rotate(-45deg); }
+    .ekko-lightbox .modal-header .close:hover {
+      color: black;
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      -o-transform: scale(1.1);
+      transform: scale(1.1);
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease; }
+    .ekko-lightbox .modal-header .modal-title {
+      line-height: 0.128571429; }
+    .ekko-lightbox .modal-header h4.modal-title {
+      font-weight: 200;
+      color: #000000;
+      padding: 0; }
+    .ekko-lightbox .modal-header h4.modal-title::first-letter {
+      font-weight: 300;
+      text-transform: uppercase; }
+  .ekko-lightbox .modal-body {
+    padding: 0; }
+  .ekko-lightbox .modal-footer {
+    -webkit-opacity: 0.5;
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    font-weight: 200;
+    color: #000000;
+    padding: 0; }
+  .ekko-lightbox-nav-overlay a {
+    -webkit-opacity: 0.5;
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    text-shadow: none; }
